@@ -8,12 +8,17 @@ var model = module.exports = {
         console.log("model init");
     },
 
-    viewModel: {
-        name: ko.observable('something')
+    registerKoComponent: function() {
+      ko.components.register('name-editor', {
+          template: "<p>Enter you name: <input data-bind='value: name' /></p><p>You entered <strong data-bind='text: name().toUpperCase()'></strong></p>",
+          viewModel: function () {
+              this.name =  ko.observable('something');
+          }
+      })
     },
 
     applyKoBindings: function() {
-        ko.applyBindings(model.viewModel);
-    }
+        ko.applyBindings();
+    },
 
 };

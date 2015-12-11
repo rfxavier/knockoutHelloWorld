@@ -11,4 +11,6 @@ var app = {
 
 app.init();
 
+model.registerKoComponent();
+
 model.applyKoBindings();
